@@ -4,3 +4,74 @@
 @import "variables/variables.scss";
 @import "typography/typography.scss";
 @import "layout/layout";
+
+////////////////////////////////////
+// OWN VARIABLES
+////////////////////////////////////
+$background-banner: url(/src/images/header.jpg);
+$margin-center: 0px auto;
+$clr-bg-card: #d9e6ae;
+$fn-weight-bold:900;
+
+////////////////////////////////////
+// OWN MIXIN
+////////////////////////////////////
+
+@mixin flex-center {
+    display:flex;
+    justify-content: center;
+    align-items: center;   
+}
+
+@mixin background-header {
+    background: $background-banner no-repeat bottom left;
+    background-size: cover;
+}
+
+@mixin title-position {
+    @include flex-center;
+    padding-top: 2rem;
+    width: 70%;
+    margin: $margin-center;
+
+}
+
+////////////////////////////////////
+// MAIN STYLING
+////////////////////////////////////
+
+nav {
+    @include flex-center;
+    li {
+        &:last-child {
+            display: none;
+        }
+    }
+}
+
+header {
+    height: 50vh;
+    font-size: $small;
+    @include background-header;
+    h1 {
+        @include title-position;
+    }
+}
+
+.cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center !important;
+    margin-top:2rem;
+    margin-bottom: 2rem;
+    h5 {
+        font-weight: $fn-weight-bold;
+    }
+    .card {
+        padding: 1rem;
+        background-color: $clr-bg-card;
+        flex: 0 1 80%;
+    }
+
+}
+
