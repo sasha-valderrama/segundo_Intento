@@ -59,19 +59,119 @@ header {
 }
 
 .cards {
+    width: 80vw !important;
     display: flex;
     flex-wrap: wrap;
     justify-content: center !important;
-    margin-top:2rem;
-    margin-bottom: 2rem;
+    margin: 2rem auto;
     h5 {
         font-weight: $fn-weight-bold;
     }
     .card {
         padding: 1rem;
         background-color: $clr-bg-card;
-        flex: 0 1 80%;
+        flex: 1 1 auto !important;
     }
-
 }
 
+main {
+    @include flex-center;
+    flex-wrap: wrap;
+    margin-bottom: 2rem;
+
+    >* {
+        padding: 1rem;
+        flex: 0 1 80%;
+    }
+    h2,h3 {
+        font-weight: bold;
+    }
+    aside {
+        border:$border-size solid $border-color;
+    }
+    article p {
+        font-weight: normal;
+    }
+}
+
+footer {
+    ul {
+        @include flex-center;
+        justify-content: space-evenly;
+        list-style: none;
+        height:10vh;
+        margin-bottom: 0 !important;
+    }
+}
+
+@media (min-width:760px) {
+    nav {
+        justify-content: flex-end;
+    }
+
+    .cards {
+        width: 98% !important;
+        gap:10px;
+        align-items: stretch;
+        flex-wrap: wrap !important;
+        .card {
+            @include flex-center;
+            flex: 0 0 300px !important;     
+            flex-direction: row !important;
+            img {
+                width: 8rem;
+                height: 10rem;
+            }
+        }
+    }
+
+    .cards {
+        width: 80% !important;
+        height: auto;
+        gap:10px;
+        flex-wrap: wrap !important;
+        .card {
+            @include flex-center;
+            flex: 0 0 600px !important;     
+            flex-direction: row !important;
+        }
+    }
+
+
+    main {
+        // flex-direction: column !important;
+        width: 98%;
+        margin: $margin-center;
+        margin-bottom: 2rem;
+        align-items: stretch;
+        aside {
+            padding: 1rem;
+            flex: 0 1 25% !important;
+        }
+        article{
+            flex: 0 1 50% !important;
+        }
+    }
+}
+
+@media (min-width:1024px) {
+
+    .cards {
+        width: 80% !important;
+        height: auto;
+        gap:10px;
+        flex-wrap: wrap !important;
+        .card {
+            @include flex-center;
+            flex: 0 0 600px !important;     
+            flex-direction: row !important;
+        }
+    }
+
+    footer {
+        ul {
+            justify-content: center;
+            gap:10px;
+        }
+    }
+}
